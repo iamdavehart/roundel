@@ -1,0 +1,22 @@
+[
+    { "name": "underground", "circle": "#E32826", "bar": "#18357e", "outline": null, "example": "Brixton" },
+    { "name": "overground", "circle": "#ED7C23", "bar": "#18357e", "example": "Shoreditch High Street" },
+    { "name": "bus", "circle": "#ec2417", "bar": "#ec2417", "example": "Oxford Street" },
+    { "name": "dlr", "circle": "#07A6AA", "example": "London City Airport" },
+    { "name": "crossrail", "circle": "#8A79B7", "example": "Abbeywood" },
+    { "name": "elizabeth_line", "circle": "#6639B7", "example": "Farringdon" },
+    { "name": "tram", "circle": "#80BB41", "example": "Wimbledon" },
+    { "name": "river", "circle": "#1498D5", "example": "Embankment Pier" },
+    { "name": "bakerloo_line", "circle": "#B36305", "bar": "#B36305", "example": "Elephant & Castle" },
+    { "name": "victoria_line", "circle": "#0098D4", "bar": "#0098D4", "example": "Euston" },
+    { "name": "central_line", "circle": "#E32017", "bar": "#E32017", "example": "Tottenham Court Road" },
+    { "name": "circle_line", "circle": "#FFD300", "bar": "#FFD300", "example": "Notting Hill Gate" },
+    { "name": "district_line", "circle": "#00782A", "bar": "#00782A", "example": "Earls Court" },
+    { "name": "hammersmith_line", "circle": "#F3A9BB", "bar": "#F3A9BB", "example": "Shepherds Bush Market" },
+    { "name": "northern_line", "circle": "#000000", "bar": "#000000", "example": "Edgware" },
+    { "name": "piccadilly_line", "circle": "#003688", "bar": "#003688", "example": "Knightsbridge" },
+    { "name": "white", "circle": "#ffffff", "bar": "#ffffff", "label": "#003688", "example": "Buskers" },
+    { "name": "metropolitan_line", "circle": "#9B0056", "bar": "#9B0056", "example": "Harrow-On-The-Hill" },
+    { "name": "jubilee_line", "circle": "#A0A5A9", "bar": "#A0A5A9", "example": "Green Park" },
+    { "name": "waterloo_line", "circle": "#95CDBA", "bar": "#95CDBA", "example": "Bank" }
+]
