@@ -1,4 +1,5 @@
 import React from "react";
+import fontData from '../data/tubefont';
 
 /**
  *
@@ -11,6 +12,7 @@ export const Roundel = ({
     strokewidth,
     labelcolour,
     dropshadow = false,
+    embedFont = false
 }) => {
     const charsPerLine = 14;
     const textBaseSize = 52;
@@ -25,7 +27,20 @@ export const Roundel = ({
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" className="App-logo">
+
             <defs>
+                { embedFont && <style dangerouslySetInnerHTML={{__html: `
+@font-face {
+    font-family:"p22-underground";
+    font-display:auto;
+    font-style:normal;
+    font-weight:normal;
+    font-stretch:normal;
+    src:url(data:font/woff2;base64,${fontData}) format("woff2");
+
+}
+                `}}></style>
+                }
                 <filter id="dropShadow">
                     <feGaussianBlur result="blurOut" in="SourceAlpha" stdDeviation="5" />
                     <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
@@ -61,10 +76,12 @@ export const Roundel = ({
                 dy={textOffset}
                 style={{
                     textAnchor: "middle",
-                    stroke: "none",
-                    fontFamily: "P22 Underground Medium",
+                    fontFamily: "p22-underground",
                     fontSize: formattedSize,
+
                 }}
+                stroke={strokecolour}
+                strokeWidth={strokecolour ? 2 : null}
                 fill={labelcolour || "white"}
             >
                 {station.toUpperCase()}
