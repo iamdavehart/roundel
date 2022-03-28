@@ -46,15 +46,17 @@ export const Roundel = ({
                     <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
                 </filter>
             </defs>
-            <rect x="0" width="500" y="0" height="500" fill="none" />
-            <path
+            {/* <rect x="0" width="500" y="0" height="500" fill="none" /> */}
+            {
+                dropshadow && <path
                 d={` M 55 210 A 200 200 0 0 1 446 210 H 490 V 290 H 446 A 200 200 0 0 1 55 290 H 10 V 210 H 55 z M 132 210 H 368 A 125 125 0 0 0 131 210 z M 131 290 A 125 125 0 0 0 368 290 H 131 z `} 
                 fill="#666666"
                 stroke="none"
                 strokeWidth="1"
                 opacity="0.7"
-                style={dropshadow ? { filter: "url(#dropShadow)" } : {}}
+                style={{ filter: "url(#dropShadow)" }}
             />
+            }
             <path
                 d="M 250 250 m 0 -200 a 200 200 0 1 0 1 0 Z m 0 75 a 125 125 0 1 1 -1 0 Z"
                 fill={circle}

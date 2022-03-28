@@ -43,7 +43,9 @@ module.exports = {
             filename: 'index.html', 
             title: 'Roundel Generator',
             cache:false,
-            templateParameters: {} 
+            templateParameters: {
+                googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+            } 
         }),
         new MiniCssExtractPlugin({
             filename: "styles.css"

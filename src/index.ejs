@@ -9,6 +9,23 @@
     <meta name="description" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/buh3prx.css">
+    <% if (googleAnalyticsId) { %>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= googleAnalyticsId %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<%= googleAnalyticsId %>');
+      </script>
+    <% } %>
+    <script>
+      if (localStorage.theme === 'dark' 
+          || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
 <body class="antialiased text-slate-500 dark:text-slate-400 bg-gray-100 dark:bg-slate-900" style="margin:0;padding:0;">
 <div id="root"></div>

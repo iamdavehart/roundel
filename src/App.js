@@ -16,7 +16,7 @@ export const App = () => {
 
     return (
         <div className="container mx-auto">
-            <Header title="Roundel Generator" subtitle="Generating SVGs and enabling downloads via PNG/SVG data URLs and HTML canvasses" />
+            <Header title="Roundel Generator" version={`v${APP_VERSION}`} />
             <section className="pt-4 pb-8">
                 <WidgetContainer>
                     <div className="aspect-square w-6/12">
@@ -37,12 +37,18 @@ export const App = () => {
             </section>
             <section className="mx-24">
                 <article>
-                    <h3 className="text-xl">About</h3>
+                <h3 className="text-xl mb-2">About</h3>
                     <p>
                         The Roundel is the iconic logo of the London Underground. I love how it gets stylized and have
                         used it here as a demo on how I create dynamic SVGs in React and then render them as images (PNG
                         or SVG). The logo is a copyrighted asset and you should only use this for educational purposes
                     </p>
+                    <h3 className="text-xl my-2">Lessons</h3>
+                    <ul className="list-disc list-inside">
+                        <li>tailwind</li>
+                        <li>how to cut holes in svg paths</li>
+                        <li>rendering svgs to png via canvas</li>
+                    </ul>
                 </article>
             </section>
             <Footer />

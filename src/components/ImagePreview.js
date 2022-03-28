@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-export const ImagePreview = ({ renderType = "svg", width = 500, height = 500, children, ...rest }) => {
+export const ImagePreview = ({ renderType = "svg", width = 500, height = 500, children, updateUrlData, ...rest }) => {
     const canvasRef = useRef(document.createElement("canvas"));
     const imageRef = useRef(new Image());
     const [ urlData, setUrlData ] = useState();
@@ -25,10 +25,12 @@ export const ImagePreview = ({ renderType = "svg", width = 500, height = 500, ch
         }
     }, [ children ])
 
+    useEffect(()=> {
+        if (updateUrlData) updateUrlData(urlData);
+    }, [ urlData ])
+
     return (
-        <>
         <img width={width} height={height} src={ urlData } {...rest} />
-        </>
     )
 }
 
