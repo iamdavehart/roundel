@@ -37,17 +37,18 @@ export const App = () => {
             </section>
             <section className="mx-24">
                 <article>
-                <h3 className="text-xl mb-2">About</h3>
+                    <h3 className="text-xl my-4 tracking-tight font-extrabold dark:text-slate-200 text-slate-800">About</h3>
                     <p>
                         The Roundel is the iconic logo of the London Underground. I love how it gets stylized and have
                         used it here as a demo on how I create dynamic SVGs in React and then render them as images (PNG
                         or SVG). The logo is a copyrighted asset and you should only use this for educational purposes
                     </p>
-                    <h3 className="text-xl my-2">Lessons</h3>
+                    <h3 className="text-xl my-4 tracking-tight font-extrabold dark:text-slate-200 text-slate-800">Lessons</h3>
                     <ul className="list-disc list-inside">
-                        <li>tailwind</li>
-                        <li>how to cut holes in svg paths</li>
-                        <li>rendering svgs to png via canvas</li>
+                        <li>first time using <b>tailwind css</b> made dark mode a breeze...</li>
+                        <li>to cut holes in svg paths fill with clockwise paths and cut out with anticlockwise paths</li>
+                        <li>render svgs to png dataURLs via an HTML canvas to make them draggable</li>
+                        <li>embed your fonts if you want your SVGs to render text correctly on canvasses</li>
                     </ul>
                 </article>
             </section>
