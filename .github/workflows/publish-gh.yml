@@ -1,0 +1,65 @@
+name: Publish To GH Pages From Tag
+on: 
+  push:
+    tags: 
+      - 'v*'
+
+jobs:
+  tagAndPublish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get our tag name
+        run: |
+          GITHUB_REF="${{ github.ref }}"
+          VERSION=${GITHUB_REF#refs/*/}
+          VERSION_PRE=${VERSION#*-}
+          VERSION_PRE_ID=${VERSION_PRE%.*}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          if [ "$VERSION_PRE" != "$VERSION" ]; then
+            echo "RELEASE_PRE=$VERSION_PRE" >> $GITHUB_ENV
+            echo "RELEASE_PRE_ID=$VERSION_PRE_ID" >> $GITHUB_ENV
+          else 
+            echo "RELEASE_PRE=" >> $GITHUB_ENV
+            echo "RELEASE_PRE_ID=" >> $GITHUB_ENV
+          fi
+        
+  
+      - name: check out code
+        uses: actions/checkout@v2
+      - name: install node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        working-directory: ./
+        run: |
+          npm install
+      - name: npm build
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+          PUBLIC_PATH: /${{ env.RELEASE_PRE_ID }}
+        working-directory: ./
+        run: |
+          npm run build
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: ${{ env.RELEASE_VERSION }}
+          tag_name: ${{ env.RELEASE_VERSION }}
+          draft: false
+          prerelease: ${{ env.RELEASE_PRE_ID != '' }}
+     
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.2.5
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          TARGET_FOLDER: ${{ env.RELEASE_PRE_ID }}
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+          CLEAN_EXCLUDE: '["beta"]' # exclude any subfolders of the root we want to persist for beta / test / release candidates etc
+
