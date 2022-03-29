@@ -56,10 +56,10 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: dist # The folder the action should deploy.
-          TARGET_FOLDER: ${{ env.RELEASE_PRE_ID }}
-          CLEAN: true # Automatically remove deleted files from the deploy branch
-          CLEAN_EXCLUDE: '["beta"]' # exclude any subfolders of the root we want to persist for beta / test / release candidates etc
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
+          target-folder: ${{ env.RELEASE_PRE_ID }}
+          clean: true # Automatically remove deleted files from the deploy branch
+          clean-exclude: '["beta"]' # exclude any subfolders of the root we want to persist for beta / test / release candidates etc
 
