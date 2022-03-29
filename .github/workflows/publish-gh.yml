@@ -37,7 +37,7 @@ jobs:
       - name: npm build
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          PUBLIC_PATH: /${{ env.RELEASE_PRE_ID }}
+          PUBLIC_PATH: /roundel/${{ env.RELEASE_PRE_ID }}
         working-directory: ./
         run: |
           npm run build
@@ -54,7 +54,7 @@ jobs:
           prerelease: ${{ env.RELEASE_PRE_ID != '' }}
      
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
