@@ -15,8 +15,8 @@ export const Header = ({ title, titleSmall, subtitle, version }) => {
                     <DarkModeSwitch />
                 </div>
             </div>
-            <div className="pt-4 pb-8">
-                <h1 className="text-4xl uppercase tracking-tight font-extrabold text-slate-800 dark:text-white text-center">
+            <div className="pt-4 pb-4 sm:pb-8">
+                <h1 className="text-2xl sm:text-4xl uppercase tracking-tight font-extrabold text-slate-800 dark:text-white text-center">
                     {title}
                     {titleSmall && <small className="text-lg ml-2 tracking-tight font-thin text-slate-500">{titleSmall}</small>}
                 </h1>

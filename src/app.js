@@ -15,11 +15,11 @@ export const App = () => {
     const scheme = roundelStyles.find((r) => r.name === options.scheme);
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto sm:px-2">
             <Header title="Roundel Generator" version={`v${APP_VERSION}`} />
             <section className="pt-4 pb-8">
                 <WidgetContainer>
-                    <div className="aspect-square w-6/12">
+                    <div className="aspect-square w-full sm:w-6/12">
                         <Roundel
                             station={options.stationName || scheme.example}
                             circlecolour={scheme.circle}
@@ -30,12 +30,12 @@ export const App = () => {
                             dropshadow={options.dropShadow}
                         />
                     </div>
-                    <div className="grow">
+                    <div className="w-full sm:w-6/12 sm:grow">
                         <Options onOptionsChange={setOptions} />
                     </div>
                 </WidgetContainer>
             </section>
-            <section className="mx-24">
+            <section className="mx-4 lg:mx-24">
                 <article>
                     <h3 className="text-xl my-4 tracking-tight font-extrabold dark:text-slate-200 text-slate-800">About</h3>
                     <p>
